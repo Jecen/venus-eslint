@@ -1,0 +1,26 @@
+{
+  "name": "venus-eslint",
+  "version": "1.0.0",
+  "description": "语法规范自动检查规则",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run lint && npm test",
+    "test": "node ./test/index.js",
+    "lint": "eslint --ext .js,.vue --ignore-pattern ddd.* ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/Jecen/venus-eslint.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Jacen",
+  "license": "ISC",
+  "dependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.16.0",
+    "eslint-plugin-vue": "^4.2.2",
+    "vue-eslint-parser": "^2.0.2"
+  }
+}
