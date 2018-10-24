@@ -1,6 +1,6 @@
 module.exports = {
   "extends": [
-    './.eslintrc.base.js',
+    './.eslintrc.js',
   ],
   "parser": 'vue-eslint-parser',
   "parserOptions": {
@@ -19,7 +19,7 @@ module.exports = {
     // 禁止重复的属性
     'vue/no-duplicate-attributes': 'error',
     // 禁止模板渲染错误
-    'vue/no-parsing-error': 'error',
+    'vue/no-parsing-error': [2, { "x-invalid-end-tag": false }],
     // 禁止覆盖保留字
     'vue/no-reserved-keys': 'error',
     // data必须用函数返回

@@ -3,7 +3,7 @@
 ## 安装
 
 ```javascript
-npm i venus-eslint
+npm i eslint-config-venus
 ```
 
 # 使用
@@ -12,7 +12,7 @@ npm i venus-eslint
 ```javascript
 // .eslintrc
 {
-    "extends": "venus-eslint"
+    "extends": "eslint-config-venus"
 }
 ```
 
@@ -20,6 +20,9 @@ npm i venus-eslint
 ```javascript
 // .eslintrc
 {
-    "extends": "venus-eslint/vue"
+    "extends": "eslint-config-venus/vue"
 }
 ```
+
+## change
+update ``` 'vue/no-parsing-error': [2, { "x-invalid-end-tag": false }] ```

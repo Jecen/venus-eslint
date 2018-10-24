@@ -1,6 +1,6 @@
 {
-  "name": "venus-eslint",
-  "version": "1.0.0",
+  "name": "eslint-config-venus",
+  "version": "1.0.2",
   "description": "语法规范自动检查规则",
   "main": "index.js",
   "scripts": {
