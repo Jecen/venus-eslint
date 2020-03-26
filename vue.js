@@ -1,17 +1,17 @@
 module.exports = {
-  "extends": [
+  'extends': [
     './.eslintrc.js',
   ],
-  "parser": 'vue-eslint-parser',
-  "parserOptions": {
-      "parser": "babel-eslint",
-      "sourceType": "module",
-      "allowImportExportEverywhere": true
+  'parser': 'vue-eslint-parser',
+  'parserOptions': {
+    'parser': 'babel-eslint',
+    'sourceType': 'module',
+    'allowImportExportEverywhere': true,
   },
-  "plugins": [
+  'plugins': [
     'vue',
   ],
-  "rules": {
+  'rules': {
     // 禁止计算属性包含异步方法
     'vue/no-async-in-computed-properties': 'error',
     // 静止重复的key
@@ -19,7 +19,7 @@ module.exports = {
     // 禁止重复的属性
     'vue/no-duplicate-attributes': 'error',
     // 禁止模板渲染错误
-    'vue/no-parsing-error': [2, { "x-invalid-end-tag": false }],
+    'vue/no-parsing-error': [2, { 'x-invalid-end-tag': false }],
     // 禁止覆盖保留字
     'vue/no-reserved-keys': 'error',
     // data必须用函数返回
@@ -30,7 +30,7 @@ module.exports = {
     // 禁止在template标签上添加key
     // @off 业务需要
     'vue/no-template-key': 'off',
-    // 禁止在textarea标签中包裹输出变量
+    // 禁止在textarea标签中包裹输出变量 <textarea v-modal='aa'></textarea>
     'vue/no-textarea-mustache': 'error',
     // 禁止未使用的变量
     'vue/no-unused-vars': 'error',
@@ -80,7 +80,7 @@ module.exports = {
     // @fix
     'vue/html-end-tags': 'off',
     // template标签中的html缩进要统一合法
-    // @off lint有bug
+    //!TODO @off lint有bug
     'vue/html-indent': [
       'off',
       2,
@@ -130,7 +130,7 @@ module.exports = {
     // html标签属性必须使用单引号
     'vue/html-quotes': [
       'error',
-      'single',
+      'double',
     ],
     // 禁止出现难以理解的 v-if 和 v-for
     'vue/no-confusing-v-for-v-if': 'error',

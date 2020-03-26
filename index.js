@@ -39,7 +39,7 @@ module.exports = {
     // 禁止在条件语句中使用常量表达式
     "no-constant-condition": [
       "error",
-      { "checkLoops": false },
+      { "checkLoops": false }, // 在循环中可配合 break 使用
     ],
     // 禁止正则中出现控制字符
     "no-control-regex": "error",
@@ -55,9 +55,9 @@ module.exports = {
     // 禁止空block
     // @warn 空catch
     "no-empty": "warn",
-    // 精致修改catch入参
+    // 禁止修改catch入参
     "no-ex-assign": "error",
-    // 禁止不不要的布尔值转换
+    // 禁止不必要的布尔值转换
     // @fix
     "no-extra-boolean-cast": "error",
     // 禁止多余括号
@@ -87,7 +87,7 @@ module.exports = {
         "skipTemplates": true,
       },
     ],
-    // 禁止错误对象调用
+    // 禁止全局对象以函数方式调用
     "no-obj-calls": "error",
     // 禁止正则中多个连续空格
     // @fix
@@ -107,14 +107,14 @@ module.exports = {
     "no-unexpected-multiline": "error",
     // 禁止出现不可达代码
     "no-unreachable": "error",
-    // 禁止finally中出现流程控制
+    // 禁止finally中出现流程控制 防止出现混乱的异常处理流程 不代表不能做业务实现
     "no-unsafe-finally": "error",
     // 禁止遍历迭代器时直接使用取反操作符
     "no-unsafe-negation": "error",
+    // 判断是否为NaN 必须使用 isNaN 方法来判断
     "use-isnan": "error",
     // 禁止typeof与无效字符串比较
     "valid-typeof": "error",
-
     // getter必须有setter,setter可以没有getter
     "accessor-pairs": [
       "error",
@@ -127,7 +127,7 @@ module.exports = {
     "array-callback-return": "error",
     // 强制var在块作用域范围内被使用
     "block-scoped-var": "error",
-    // 禁止函数环境复杂度超过10
+    // 禁止函数环境复杂度超过20
     "complexity": [
       "error",
       {
@@ -140,27 +140,28 @@ module.exports = {
     // 能写{}则{}不能省略
     "curly": "error",
     // switch 必须有 default
-    // @off 无收益
-    "default-case": "off",
+    "default-case": "error",
     // 强制点号在新的一行
+    // good : a.c  a\n.c
+    // bad: a.\nc
     // @fix
     "dot-location": [
       "error",
       "property",
     ],
     // 尽可能使用点号访问对象属性
-    // @off 灵活性太差
+    // @off 灵活性太差 obj['props']
     "dot-notation": "off",
-    // 强制 ===
+    // 强制 === if(`${aa.id}` === `${item.id}`)
     "eqeqeq": [
       "error",
       "always",
     ],
-    // for in 中必须判断是否是原型链属性
+    // for in 中必须判断是否是原型链属性 Object.keys()
     "guard-for-in": "error",
     // 禁用 alert confirm prompt
     // @off 业务需要
-    "no-alert": "off",
+    "no-alert": "error",
     // switch中禁止直接的变量或函数申明，如需声明，用大括号包裹
     "no-case-declarations": "error",
     // 禁止空函数
@@ -182,7 +183,7 @@ module.exports = {
     // 禁止不必要的bind
     // @fix
     "no-extra-bind": "error",
-    // 禁止不必要的标签
+    // 禁止不必要的标签 有标签名的 可以跳出 任意标签名的代码块
     // @fix
     "no-extra-label": "error",
     // case不需要有break，return或throw
@@ -195,7 +196,7 @@ module.exports = {
     // @off 动态绑定的情况不能满足
     "no-invalid-this": "off",
     // 禁止直接使用意义不明确的数字
-    "no-magic-numbers": "warn",
+    "no-magic-numbers": "off",
     // 禁止连续空格
     // @fix
     "no-multi-spaces": [
@@ -219,6 +220,7 @@ module.exports = {
     "no-new-wrappers": "error",
     // 禁止八进制字面量
     "no-octal": "error",
+    // 此规则不允许在字符串文字中使用八进制转义序列。
     "no-octal-escape": "error",
     // 禁止对函数参数重新赋值
     "no-param-reassign": "error",
@@ -248,7 +250,7 @@ module.exports = {
     "no-unused-labels": "error",
     // 禁用不必要的call和apply
     "no-useless-call": "error",
-    // 禁用不必要的字符串连接
+    // 禁用不必要的字符串连接 'aaccc'
     "no-useless-concat": "error",
     // async函数要有await
     // @off async函数需要没有await使用
@@ -293,8 +295,8 @@ module.exports = {
       "error",
       "always-multiline",
     ],
-    // 强制逗号前空格
-    // @fix
+    // 强制逗号后空格
+    // @fix function aa(a1, a2, a3) {}
     "comma-spacing": [
       "error",
       {
@@ -364,11 +366,11 @@ module.exports = {
     "newline-per-chained-call": [
       "error",
       {
-        "ignoreChainWithDepth": 2,
+        "ignoreChainWithDepth": 3,
       },
     ],
     // 禁止空格tab混用
-    "no-mixed-spaces-and-tabs": "error",
+    "no-mixed-spaces-and-tabs": "warn",
     // 禁止多行空行
     "no-multiple-empty-lines": "error",
     // 禁止行尾空格
@@ -489,14 +491,13 @@ module.exports = {
       "never",
     ],
 
-
     // 箭头函数必须用大括号包裹
     // @off 直接返回没必要用花括号
     "arrow-body-style": "off",
     // 箭头函数必须使用圆括号
     // @off 违背语法初衷
     "arrow-parens": "off",
-    // 箭头函数箭头前后必须有空格
+    // 箭头函数箭头前后必须有空格 =>
     // @fix
     "arrow-spacing": [
       "error",
