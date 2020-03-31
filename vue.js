@@ -92,8 +92,16 @@ module.exports = {
       },
     ],
     // 没内容时，组件必须自闭合
-    // @fix
-    'vue/html-self-closing': 'error',
+    // @fix 自定义组件可以不需要闭合，主要是针对iview下的Col组件可能出现的报错
+    'vue/html-self-closing': ['error', {
+      'html': {
+        'void': 'never',
+        'normal': 'always',
+        'component': 'any',
+      },
+      'svg': 'always',
+      'math': 'always',
+    }],
     // 每行最多3个属性，超过三个必须换行
     'vue/max-attributes-per-line': [
       'error',
