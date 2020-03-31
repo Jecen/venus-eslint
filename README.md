@@ -3,26 +3,25 @@
 ## 安装
 
 ```javascript
-npm i eslint-config-venus
+npm i @ourea/eslint-config-tq
 ```
 
-# 使用
+## 使用
 
 ### base
+
 ```javascript
 // .eslintrc
 {
-    "extends": "eslint-config-venus"
+    "extends": "@ourea/eslint-config-tq"
 }
 ```
 
 ### vue
+
 ```javascript
 // .eslintrc
 {
-    "extends": "eslint-config-venus/vue"
+    "extends": "@ourea/eslint-config-tq/vue"
 }
 ```
-
-## change
-update ``` 'vue/no-parsing-error': [2, { "x-invalid-end-tag": false }] ```

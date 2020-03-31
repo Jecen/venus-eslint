@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-venus",
-  "version": "1.0.2",
-  "description": "语法规范自动检查规则",
+  "name": "@ourea/eslint-config-tq",
+  "version": "0.0.1",
+  "description": "天阙语法规范自动检查规则",
   "main": "index.js",
   "scripts": {
     "start": "npm run lint && npm test",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/Jecen/venus-eslint.git"
+    "url": "ssh://git@gitlab.hztianque.com:22016/Pub/venus-eslint.git"
   },
   "keywords": [
     "eslint"
