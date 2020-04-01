@@ -1,6 +1,6 @@
 {
   "name": "@ourea/eslint-config-tq",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "天阙语法规范自动检查规则",
   "main": "index.js",
   "scripts": {
