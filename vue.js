@@ -168,10 +168,15 @@ module.exports = {
     'vue/this-in-template': 'error',
     // 模板反小括号禁止单独换行
     // @fix
-    'vue/html-closing-bracket-newline': 'error',
+    'vue/html-closing-bracket-newline': ['error', {
+      'multiline': 'never',
+    }],
     // good: <div></div> <img src='src' />
     // bad: <div ></div> <img src='src'/>
     // @fix
     'vue/html-closing-bracket-spacing': 'error',
+    // 在多行元素的内容之前和之后需要换行符
+    'vue/multiline-html-element-content-newline': 'error',
+
   },
 }
